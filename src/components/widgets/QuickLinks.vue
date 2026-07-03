@@ -6,7 +6,7 @@
         >
             <base href="/" />
             <a
-                v-for="(link, index) in settingsStore.quickLinks.links"
+                v-for="link in settingsStore.quickLinks.links"
                 :key="link"
                 :href="'https://' + link"
                 :target="settingsStore.quickLinks.open_link_in === 'New Tab' ? '_blank' : '_self'"
@@ -43,7 +43,7 @@ export default {
     beforeUnmount() {
         // Revoke all favicon object URLs to free memory
         Object.values(this.faviconUrls).forEach((url) => {
-            if (url && url.startsWith("blob:")) {
+            if (url?.startsWith("blob:")) {
                 URL.revokeObjectURL(url);
             }
         });

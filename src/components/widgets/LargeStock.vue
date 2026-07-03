@@ -200,7 +200,7 @@ export default {
         },
         currentTicker() {
             const tickers = this.settingsStore.stock.tickers;
-            if (!tickers || !tickers.length) return null;
+            if (!tickers?.length) return null;
             return tickers[this.selected % tickers.length];
         },
         currentData() {

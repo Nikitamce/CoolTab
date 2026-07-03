@@ -82,7 +82,7 @@ export default {
     },
     computed: {
         colors() {
-            if (this.style && this.style.settings && this.style.settings.colors) {
+            if (this.style?.settings?.colors) {
                 return this.style.settings.colors;
             }
             return {

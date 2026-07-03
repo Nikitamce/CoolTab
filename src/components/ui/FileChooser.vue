@@ -38,7 +38,7 @@ export default {
     methods: {
         async handleFileChange(event) {
             const file = event.target.files[0];
-            if (file && file.type.startsWith("image/")) {
+            if (file?.type.startsWith("image/")) {
                 try {
                     await this.settingsStore.setBackgroundImage(file);
                     this.settingsStore.setBackgroundImageFileName(file.name);

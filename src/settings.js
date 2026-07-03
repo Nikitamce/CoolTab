@@ -20,7 +20,7 @@ export const useSettingsStore = defineStore("settings", {
         widgetBackground: localStorage.getItem("widget-background") || "Color",
         colors: getColors(),
         colorPalette: getColorPalette(),
-        currentVersion: pkg && pkg.version ? pkg.version : "0.0.0",
+        currentVersion: pkg?.version ? pkg.version : "0.0.0",
         savedVersion: getSavedVersion(),
         releaseNotes: null,
         showUpdatePopup: false,
@@ -91,14 +91,14 @@ export const useSettingsStore = defineStore("settings", {
             storeInLocalStorage("open-search-result-in", choice);
         },
         setCurrentWeatherInfo(weather) {
-            if (weather && weather.lastUpdated && typeof weather.lastUpdated === "string") {
+            if (weather?.lastUpdated && typeof weather.lastUpdated === "string") {
                 weather.lastUpdated = new Date(weather.lastUpdated);
             }
             this.currentWeatherInfo = weather;
             storeInLocalStorage("weather-info", JSON.stringify(weather));
         },
         setStock(stockInfo) {
-            if (stockInfo && stockInfo.lastUpdated && typeof stockInfo.lastUpdated === "string") {
+            if (stockInfo?.lastUpdated && typeof stockInfo.lastUpdated === "string") {
                 stockInfo.lastUpdated = new Date(stockInfo.lastUpdated);
             }
             this.stock = stockInfo;
@@ -117,14 +117,14 @@ export const useSettingsStore = defineStore("settings", {
             storeInLocalStorage("widget-area-columns", columns);
         },
         setWeeklyWeatherInfo(weather) {
-            if (weather && weather.lastUpdated && typeof weather.lastUpdated === "string") {
+            if (weather?.lastUpdated && typeof weather.lastUpdated === "string") {
                 weather.lastUpdated = new Date(weather.lastUpdated);
             }
             this.weeklyWeatherInfo = weather;
             storeInLocalStorage("weekly-weather-info", JSON.stringify(weather));
         },
         setHourlyWeatherInfo(weather) {
-            if (weather && weather.lastUpdated && typeof weather.lastUpdated === "string") {
+            if (weather?.lastUpdated && typeof weather.lastUpdated === "string") {
                 weather.lastUpdated = new Date(weather.lastUpdated);
             }
             this.hourlyWeatherInfo = weather;
@@ -140,7 +140,7 @@ export const useSettingsStore = defineStore("settings", {
             // update css variables
             const r = document.querySelector(":root");
             for (const key in colors) {
-                if (colors.hasOwnProperty(key)) {
+                if (Object.hasOwn(colors, key)) {
                     r.style.setProperty(`--${key.replaceAll("_", "-")}`, colors[key]);
                 }
             }
@@ -164,7 +164,7 @@ export const useSettingsStore = defineStore("settings", {
                     // updated
                     this.showUpdatePopup = true;
                 }
-            } catch (e) {
+            } catch {
                 // ignore errors; don't block startup
             }
         },
@@ -178,7 +178,7 @@ export const useSettingsStore = defineStore("settings", {
 
             // If there's a custom background image, save a copy for this style
             const currentImage = this.backgroundImage;
-            if (currentImage && currentImage.startsWith("blob:")) {
+            if (currentImage?.startsWith("blob:")) {
                 fetch(currentImage)
                     .then((r) => r.blob())
                     .then((blob) => {
@@ -205,7 +205,7 @@ export const useSettingsStore = defineStore("settings", {
         async applyStyle(styleId) {
             const styleList = this.userStyles;
             const style = styleList ? styleList.find((t) => t.id === styleId) : null;
-            if (style && style.settings) {
+            if (style?.settings) {
                 await this.applyStyleSettings(style.settings);
 
                 // Load style-specific background if it exists
@@ -226,7 +226,7 @@ export const useSettingsStore = defineStore("settings", {
                 const response = await fetch(`https://cool-tab-api.vercel.app/api/get-style?id=${styleId}`);
                 if (response.ok) {
                     const style = await response.json();
-                    if (style && style.settings) {
+                    if (style?.settings) {
                         const importedStyle = {
                             ...style,
                             id: Date.now().toString(),
@@ -321,7 +321,7 @@ export const useSettingsStore = defineStore("settings", {
             storeInLocalStorage("remember-wallpaper-page", choice);
         },
         setLocation(location) {
-            if (location && location.lastUpdated && typeof location.lastUpdated === "string") {
+            if (location?.lastUpdated && typeof location.lastUpdated === "string") {
                 location.lastUpdated = new Date(location.lastUpdated);
             }
             this.location = location;
@@ -333,8 +333,7 @@ export const useSettingsStore = defineStore("settings", {
 		},
 		getStyleSnapshot() {
 		    return {
-		        backgroundImage:
-		            this.backgroundImage && this.backgroundImage.startsWith("blob:") ? null : this.backgroundImage,
+		        backgroundImage: this.backgroundImage?.startsWith("blob:") ? null : this.backgroundImage,
 		        backgroundImageFileName: this.backgroundImageFileName,
 		        backgroundSize: this.backgroundSize,
 		        widgetBackground: this.widgetBackground,
@@ -424,7 +423,7 @@ function getCurrentWeatherInfo() {
     if (info) {
         try {
             parsed = JSON.parse(info);
-        } catch (e) {
+        } catch {
             return def;
         }
         parsed.lastUpdated = new Date(parsed.lastUpdated);
@@ -469,7 +468,7 @@ function getStock() {
     if (stocksData) {
         try {
             parsed = JSON.parse(stocksData);
-        } catch (e) {
+        } catch {
             return def;
         }
         parsed.lastUpdated = new Date(parsed.lastUpdated);
@@ -495,7 +494,7 @@ function getQuickLinks() {
             const parsed = JSON.parse(quickLinks);
             delete parsed.images; // Cleanup legacy data
             return parsed;
-        } catch (e) {
+        } catch {
             return def;
         }
     }
@@ -630,7 +629,7 @@ function getWidgets() {
 
     if (widgets) {
         try {
-            let widgetsJSON = JSON.parse(widgets);
+            const widgetsJSON = JSON.parse(widgets);
 
             // Convert widgetsJSON into a Map for quick lookup by name
             const widgetMap = new Map(widgetsJSON.map((widget) => [widget.name, widget]));
@@ -643,7 +642,7 @@ function getWidgets() {
             });
 
             return widgetsJSON;
-        } catch (e) {
+        } catch {
             return def;
         }
     }
@@ -686,7 +685,7 @@ function getWeeklyWeatherInfo() {
     if (info) {
         try {
             parsed = JSON.parse(info);
-        } catch (e) {
+        } catch {
             return def;
         }
         parsed.lastUpdated = new Date(parsed.lastUpdated);
@@ -727,7 +726,7 @@ function getHourlyWeatherInfo() {
     if (info) {
         try {
             parsed = JSON.parse(info);
-        } catch (e) {
+        } catch {
             return def;
         }
         parsed.lastUpdated = new Date(parsed.lastUpdated);
@@ -766,7 +765,7 @@ function getColors() {
     if (colors) {
         try {
             parsed = JSON.parse(colors);
-        } catch (e) {
+        } catch {
             return def;
         }
         return parsed;
@@ -790,7 +789,7 @@ function getColorPalette() {
     if (palette) {
         try {
             parsed = JSON.parse(palette);
-        } catch (e) {
+        } catch {
             return def;
         }
         return parsed;
@@ -808,7 +807,7 @@ function getUserStyles() {
     if (styles) {
         try {
             return JSON.parse(styles);
-        } catch (e) {
+        } catch {
             return [];
         }
     }
@@ -824,7 +823,7 @@ function getTodoItems() {
     if (items) {
         try {
             return JSON.parse(items);
-        } catch (e) {
+        } catch {
             return [];
         }
     }
@@ -848,7 +847,7 @@ function getLocation() {
     if (info) {
         try {
             parsed = JSON.parse(info);
-        } catch (e) {
+        } catch {
             return def;
         }
         parsed.lastUpdated = new Date(parsed.lastUpdated);

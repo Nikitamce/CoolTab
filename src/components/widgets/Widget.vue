@@ -22,7 +22,7 @@ export default {
                 case "Color":
                     return {
                         background: this.settingsStore.colors.color_secondary_background,
-                        border: "2px solid " + this.settingsStore.colors.color_border_line,
+                        border: `2px solid ${this.settingsStore.colors.color_border_line}`,
                     };
                 case "Transparent":
                     return {

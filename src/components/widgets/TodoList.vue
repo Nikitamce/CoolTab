@@ -36,7 +36,8 @@ import { useSettingsStore } from "@/settings";
 export default {
     name: "TodoList",
     components: {
-        Widget,
+		Widget,
+        Svg,
     },
     setup() {
         const settingsStore = useSettingsStore();

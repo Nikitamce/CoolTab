@@ -86,29 +86,32 @@ export default {
             window.addEventListener("mousemove", this.mouseMoveEvent);
             window.addEventListener("mouseup", this.mouseUpEvent);
         },
-        mouseUpEvent(event) {
+        mouseUpEvent() {
             if (this.resizing) {
                 this.resizing = false;
                 const rect = this.$el.getBoundingClientRect();
 
                 switch (this.p_resize) {
-                    case "square":
+                    case "square": {
                         // Square resizing, width and height must match
                         const w = Math.round(rect.width / this.$parent.step);
                         const h = Math.round(rect.height / this.$parent.step);
                         const size = Math.max(Math.min(w, h), 1);
                         this.width = size;
                         this.height = size;
-                        break;
-                    case "horizontal":
+						break;
+                    }
+                    case "horizontal": {
                         // Horizontal resizing, don't change height
                         this.width = Math.max(Math.round(rect.width / this.$parent.step), 1); // size can be minimum 1
-                        break;
-                    case "vertical":
-                        // Vertical resizing, don't change width
-                        this.height = Math.max(Math.round(rect.height / this.$parent.step), 1); // size can be minimum 1
-                        break;
-                    default:
+						break;
+                    }
+					case "vertical": {
+						// Vertical resizing, don't change width
+						this.height = Math.max(Math.round(rect.height / this.$parent.step), 1); // size can be minimum 1
+						break;
+					}
+                    default: {
                         // Case for aspect ratio elements like "2/1"
                         const [aspectWidth, aspectHeight] = this.p_resize.split("/").map(Number);
                         if (aspectWidth && aspectHeight) {
@@ -123,7 +126,8 @@ export default {
                             this.width = Math.max(calcWidth, 1);
                             this.height = Math.max(calcHeight, 1);
                         }
-                        break;
+						break;
+                    }
                 }
 
                 // Emit size changes after resizing
