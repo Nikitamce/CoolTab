@@ -89,14 +89,14 @@ export default {
     background: transparent;
     border: none;
     cursor: pointer;
-    transition: background-color 180ms ease;
+    transition: background-color 200ms ease;
     color: var(--color-tertiary-text);
 }
 
 .rail-btn i {
     font-size: 1.5rem;
     color: inherit;
-    transition: color 180ms ease;
+    transition: color 200ms ease;
     user-select: none;
 }
 
@@ -126,7 +126,7 @@ export default {
     white-space: nowrap;
     pointer-events: none;
     opacity: 0;
-    transition: opacity 150ms ease;
+    transition: opacity 200ms ease;
     z-index: 10001;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }

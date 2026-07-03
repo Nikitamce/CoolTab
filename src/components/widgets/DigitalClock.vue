@@ -75,7 +75,7 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: opacity 250ms ease;
+    transition: opacity 200ms ease;
     container-type: size;
     resize: both;
     z-index: 2;
@@ -104,12 +104,13 @@ export default {
     justify-content: center;
     align-items: center;
     opacity: 0;
-    transition: opacity 250ms ease;
+    transition: opacity 200ms ease;
 }
 
 .comprehensive h1 {
     font-size: 20cqw;
     line-height: 20cqw;
     margin: 0;
+    font-variant-numeric: tabular-nums;
 }
 </style>

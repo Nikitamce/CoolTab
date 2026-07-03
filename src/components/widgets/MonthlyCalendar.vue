@@ -123,7 +123,7 @@ export default {
 
 .nav-btn {
     cursor: pointer;
-    transition: opacity 250ms ease;
+    transition: opacity 200ms ease;
 }
 
 .nav-btn:hover {

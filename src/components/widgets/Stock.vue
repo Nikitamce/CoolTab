@@ -223,11 +223,11 @@ export default {
 }
 
 .live-line {
-    transition: d 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: d 500ms ease;
 }
 
 .live-fill {
-    transition: d 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: d 500ms ease;
 }
 
 .stock-info {
@@ -272,7 +272,7 @@ export default {
     margin: 0;
     font-family: Satoshi-Light;
     opacity: 0;
-    transition: opacity 250ms ease;
+    transition: opacity 200ms ease;
 }
 
 .loading-container {

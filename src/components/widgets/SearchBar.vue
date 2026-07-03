@@ -100,7 +100,7 @@ export default {
 .clear-button {
     height: 100%;
     cursor: pointer;
-    transition: color 250ms ease;
+    transition: color 200ms ease;
 }
 
 .clear-button:hover {

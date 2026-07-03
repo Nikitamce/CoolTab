@@ -109,7 +109,7 @@ export default {
     text-decoration: underline;
     font-family: Satoshi-Bold;
     margin-left: 6px;
-    transition: color 150ms ease;
+    transition: color 200ms ease;
     cursor: pointer;
 }
 
@@ -120,7 +120,7 @@ export default {
 /* Transition Animations */
 .toast-enter-active,
 .toast-leave-active {
-    transition: all 300ms ease;
+    transition: all 200ms ease;
 }
 
 .toast-enter-from {

@@ -340,7 +340,7 @@ export default {
 
 .slide-enter-active,
 .slide-leave-active {
-    transition: transform 300ms cubic-bezier(0.25, 0.8, 0.25, 1), opacity 300ms ease;
+    transition: transform 200ms ease, opacity 200ms ease;
 }
 
 .slide-enter-from,

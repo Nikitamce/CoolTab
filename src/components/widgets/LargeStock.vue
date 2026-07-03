@@ -543,11 +543,11 @@ export default {
 }
 
 .live-line {
-    transition: d 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: d 500ms ease;
 }
 
 .live-fill {
-    transition: d 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: d 500ms ease;
 }
 
 .crosshair-line {
@@ -580,7 +580,7 @@ export default {
     color: var(--color-secondary-text);
     margin-top: 1cqh;
     font-family: Satoshi-Medium;
-    transition: opacity 0.15s ease;
+    transition: opacity 200ms ease;
 }
 
 .range-selector {
@@ -636,7 +636,7 @@ export default {
     padding: 1.5cqh 3cqh;
     margin: 0;
     font-family: Satoshi-Medium;
-    transition: opacity 0.15s ease;
+    transition: opacity 200ms ease;
     white-space: nowrap;
     flex-shrink: 0;
 }

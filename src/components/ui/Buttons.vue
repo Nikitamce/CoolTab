@@ -123,7 +123,7 @@ export default {
     /* Hidden state */
     transform: translateX(-100%);
     opacity: 0;
-    transition: transform 300ms cubic-bezier(0.25, 0.8, 0.25, 1), opacity 300ms ease;
+    transition: transform 200ms ease, opacity 200ms ease;
 }
 
 .button i {
@@ -131,7 +131,7 @@ export default {
     height: 100%;
     object-fit: contain;
     margin: 0;
-    transition: transform 250ms ease;
+    transition: transform 200ms ease;
 }
 
 .button:hover i {

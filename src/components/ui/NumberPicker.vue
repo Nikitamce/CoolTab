@@ -82,7 +82,7 @@ export default {
     color: var(--color-tertiary-text);
     cursor: pointer;
     border-radius: 5px;
-    transition: background-color 250ms ease, color 250ms ease;
+    transition: background-color 200ms ease, color 200ms ease;
 }
 
 .btn:hover {

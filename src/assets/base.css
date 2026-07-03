@@ -24,8 +24,8 @@ body {
     background: var(--color-primary-background);
     overflow: hidden;
     transition:
-        color 0.5s,
-        background-color 0.5s;
+        color 200ms,
+        background-color 200ms;
     line-height: 1.6;
     font-family:
         Satoshi-Regular,
@@ -71,7 +71,7 @@ a {
     text-decoration: none;
     color: var(--color-tertiary-text);
     font-weight: bold;
-    transition: color 250ms ease;
+    transition: color 200ms ease;
 }
 
 a:hover {
@@ -87,7 +87,7 @@ a::after {
     height: 1px;
     background-color: var(--color-tertiary-text);
     transform: scaleX(0%);
-    transition: transform 250ms ease;
+    transition: transform 200ms ease;
 }
 
 a:hover::after {

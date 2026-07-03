@@ -96,8 +96,8 @@ export default {
 .overlay-enter-active,
 .overlay-leave-active {
     transition:
-        backdrop-filter 250ms ease,
-        background-color 250ms ease;
+        backdrop-filter 200ms ease,
+        background-color 200ms ease;
 }
 
 .overlay-enter-from,
@@ -123,7 +123,7 @@ export default {
 
 .slide-enter-active,
 .slide-leave-active {
-    transition: transform 250ms ease;
+    transition: transform 200ms ease;
 }
 
 .slide-enter-from,
@@ -146,8 +146,8 @@ export default {
     justify-content: center;
     color: var(--color-tertiary-text);
     transition:
-        background-color 180ms ease,
-        color 180ms ease;
+        background-color 200ms ease,
+        color 200ms ease;
     z-index: 1;
 }
 
@@ -178,7 +178,7 @@ export default {
     white-space: nowrap;
     pointer-events: none;
     opacity: 0;
-    transition: opacity 150ms ease;
+    transition: opacity 200ms ease;
     z-index: 10001;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }

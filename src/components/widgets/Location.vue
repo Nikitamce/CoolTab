@@ -297,7 +297,7 @@ export default {
     pointer-events: none;
     z-index: 2;
     opacity: var(--cobe-visible-marker, 0);
-    transition: opacity 0.3s;
+    transition: opacity 200ms ease;
 }
 
 .pulsing-marker::after {

@@ -69,7 +69,7 @@ label {
     cursor: pointer;
     text-align: left;
     border: 2px solid var(--color-border-line);
-    transition: color 250ms ease;
+    transition: color 200ms ease;
     user-select: none;
 }
 
@@ -78,7 +78,7 @@ label:hover {
 }
 
 .folder-logo {
-    transition: filter 250ms ease;
+    transition: filter 200ms ease;
 }
 
 label:hover .folder-logo {
@@ -95,7 +95,7 @@ label:hover .folder-logo {
 }
 
 .trash-logo {
-    transition: transform 250ms ease, color 250ms ease;
+    transition: transform 200ms ease, color 200ms ease;
 }
 
 .trash-logo:hover {

@@ -183,7 +183,7 @@ export default {
 
 .action-btn > i {
     cursor: pointer;
-    transition: color 150ms ease, transform 150ms ease;
+    transition: color 200ms ease, transform 200ms ease;
 }
 
 .apply:hover {

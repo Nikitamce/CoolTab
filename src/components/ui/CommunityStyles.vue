@@ -333,7 +333,7 @@ export default {
     font-family: Satoshi-Bold;
     cursor: pointer;
     white-space: nowrap;
-    transition: all 150ms ease;
+    transition: all 200ms ease;
 }
 
 .action-btn i {
@@ -388,7 +388,6 @@ export default {
     border-color: #ef4444;
     color: #ef4444;
 }
-
 
 .card-name {
     font-family: Satoshi-Bold;
@@ -489,8 +488,8 @@ export default {
     font-family: Satoshi-Bold;
     font-size: 0.8rem;
     transition:
-        border-color 150ms ease,
-        color 150ms ease;
+        border-color 200ms ease,
+        color 200ms ease;
 }
 
 .retry-btn:hover {

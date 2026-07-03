@@ -148,7 +148,7 @@ export default {
     position: relative;
     border-radius: 5px;
     border-bottom: 1px solid transparent;
-    transition: all 0.2s ease;
+    transition: all 200ms ease;
 }
 
 .task-item:hover {
@@ -160,7 +160,7 @@ export default {
     display: flex;
     align-items: center;
     color: var(--color-secondary-text);
-    transition: color 0.2s ease;
+    transition: color 200ms ease;
 }
 
 .task-item:hover .checkbox {
@@ -177,7 +177,7 @@ export default {
     cursor: pointer;
     flex-grow: 1;
     word-break: break-word;
-    transition: all 0.2s ease;
+    transition: all 200ms ease;
 }
 
 .task-item.done .task-text {
@@ -190,7 +190,7 @@ export default {
     opacity: 0;
     cursor: pointer;
     color: var(--color-tertiary-text);
-    transition: all 0.2s ease;
+    transition: all 200ms ease;
 }
 
 .task-item:hover .remove-btn {
@@ -219,7 +219,7 @@ export default {
     padding: 8px 30px 8px 10px;
     color: var(--color-primary-text);
     font-size: 0.9rem;
-    transition: all 0.2s ease;
+    transition: all 200ms ease;
 }
 
 .todo-input:focus {

@@ -131,7 +131,7 @@ export default {
 
 .link {
     filter: grayscale(100%);
-    transition: filter 250ms ease;
+    transition: filter 200ms ease;
 }
 
 .link:hover {

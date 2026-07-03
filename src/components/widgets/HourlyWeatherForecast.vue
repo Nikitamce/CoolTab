@@ -334,7 +334,7 @@ export default {
 }
 
 .morph-line, .morph-fill {
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 500ms ease;
 }
 
 .dot {
@@ -343,7 +343,7 @@ export default {
     height: 2.5cqh;
     border-radius: 50%;
     transform: translateY(-50%);
-    transition: top 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: top 500ms ease;
     z-index: 2;
 }
 
@@ -371,7 +371,7 @@ export default {
     transform: translateY(-150%);
     font-size: 5cqh;
     white-space: nowrap;
-    transition: top 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: top 500ms ease;
     color: var(--color-secondary-text);
     font-family: Satoshi-Medium;
 }
