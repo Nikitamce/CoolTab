@@ -48,7 +48,7 @@ export default {
     border-radius: 10px;
     cursor: pointer;
     border: 2px solid var(--color-border-line);
-    transition: color 250ms ease;
+    transition: color 200ms ease;
     user-select: none;
     padding: 5px;
     display: flex;
@@ -61,7 +61,7 @@ export default {
     border-radius: 5px;
     width: 100%;
     cursor: pointer;
-    transition: background-color 250ms ease;
+    transition: background-color 200ms ease;
     color: var(--color-secondary-text);
     height: 30px;
     padding: 0 10px 0 10px;

@@ -312,7 +312,7 @@ export default {
     align-items: bottom;
     justify-content: left;
     color: var(--color-tertiary-text);
-    transition: color 250ms ease;
+    transition: color 200ms ease;
 }
 
 .help-btn:hover {

@@ -125,7 +125,7 @@ export default {
     border-radius: 14px;
     overflow: hidden;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 200ms ease;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -204,7 +204,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.3s ease;
+    transition: transform 200ms ease;
 }
 
 .widget-info {
@@ -219,6 +219,6 @@ export default {
     font-weight: 700;
     letter-spacing: 0.05rem;
     color: var(--color-secondary-text);
-    transition: color 0.3s ease;
+    transition: color 200ms ease;
 }
 </style>

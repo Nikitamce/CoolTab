@@ -11,7 +11,7 @@
                     <i class="material-icons-outlined">help_outline</i>
                     <h1>Stock Search Guide</h1>
                 </div>
-                
+
                 <div class="content">
                     <p class="intro">
                         CoolTab uses Yahoo Finance symbols to track real-time data. You can search for stocks, cryptocurrencies, currencies, and more.
@@ -137,7 +137,7 @@ export default {
 
 .overlay-enter-active,
 .overlay-leave-active {
-    transition: opacity 300ms ease, backdrop-filter 300ms ease;
+    transition: opacity 200ms ease, backdrop-filter 200ms ease;
 }
 
 .overlay-enter-from,
@@ -189,7 +189,7 @@ export default {
 
 .overlay-enter-active .panel,
 .overlay-leave-active .panel {
-    transition: transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 300ms ease;
+    transition: transform 200ms ease, opacity 200ms ease;
 }
 
 .overlay-enter-from .panel,

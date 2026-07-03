@@ -35,7 +35,7 @@
                     </h1>
                 </div>
                 <h1 v-if="currentData" class="price">{{ formattedPrice }}</h1>
-                
+
                 <div v-else class="loading-container">
                     <h1 class="ticker">{{ currentTickerDisplay }}</h1>
                     <p class="loading-text">Loading data...</p>
@@ -75,7 +75,7 @@ export default {
     computed: {
         currentTicker() {
             const tickers = this.settingsStore.stock.tickers;
-            if (!tickers || !tickers.length) return null;
+            if (!tickers?.length) return null;
             return tickers[this.selected % tickers.length];
         },
         currentData() {
@@ -88,7 +88,7 @@ export default {
         diffPercentDisplay() {
             if (!this.currentData) return "0.00%";
             const diff = this.currentData.diffPercent;
-            return (diff > 0 ? "+" : "") + diff.toFixed(2) + "%";
+            return `${diff > 0 ? "+" : ""}${diff.toFixed(2)}%`;
         },
         formattedPrice() {
             if (!this.currentData) return "$0.00";
@@ -99,26 +99,26 @@ export default {
         },
         pathData() {
             const targetPoints = 40;
-            if (!this.currentData || !this.currentData.prices.length) {
+            if (!this.currentData?.prices?.length) {
                 let d = "";
                 for (let i = 0; i < targetPoints; i++) {
                     const x = (i / (targetPoints - 1)) * 100;
-                    d += (i === 0 ? "M " : " L ") + `${x} 45`;
+                    d += `${i === 0 ? "M " : " L "}${x} 45`;
                 }
                 return d;
             }
-            
+
             const prices = this.currentData.prices;
             const max = Math.max(...prices);
             const min = Math.min(...prices);
             const range = max - min || 1;
-            
+
             let d = "";
             for (let i = 0; i < prices.length; i++) {
                 const x = (i / (prices.length - 1)) * 100;
                 // Map prices to y range [20, 70] to leave space for text at the top and price at the bottom
                 const y = 70 - ((prices[i] - min) / range) * 50;
-                d += (i === 0 ? "M " : " L ") + `${x} ${y}`;
+                d += `${i === 0 ? "M " : " L "}${x} ${y}`;
             }
             return d;
         },
@@ -139,17 +139,17 @@ export default {
     methods: {
         async fetchAllStockInfo() {
             const tickers = this.settingsStore.stock.tickers;
-            if (!tickers || !tickers.length) return;
+            if (!tickers?.length) return;
 
             for (const ticker of tickers) {
                 try {
                     const data = await fetchYahoo(`${YAHOO_QUERY1_BASE}/v8/finance/chart/${encodeURIComponent(ticker)}?range=1d&interval=1m`);
-                    
-                    if (data.chart && data.chart.result && data.chart.result.length > 0) {
+
+                    if (data.chart?.result?.length > 0) {
                         const result = data.chart.result[0];
                         const meta = result.meta;
                         let rawPrices = result.indicators?.quote[0]?.close || [];
-                        
+
                         // Filter out leading/trailing nulls if any, but better to just fill
                         let lastValid = rawPrices.find(p => p !== null) ?? meta.regularMarketPrice;
                         rawPrices = rawPrices.map(p => {
@@ -223,11 +223,11 @@ export default {
 }
 
 .live-line {
-    transition: d 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: d 500ms ease;
 }
 
 .live-fill {
-    transition: d 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: d 500ms ease;
 }
 
 .stock-info {
@@ -272,7 +272,7 @@ export default {
     margin: 0;
     font-family: Satoshi-Light;
     opacity: 0;
-    transition: opacity 250ms ease;
+    transition: opacity 200ms ease;
 }
 
 .loading-container {

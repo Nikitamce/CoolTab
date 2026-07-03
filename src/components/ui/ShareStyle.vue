@@ -137,7 +137,7 @@ export default {
 
 .overlay-enter-active,
 .overlay-leave-active {
-    transition: backdrop-filter 250ms ease, background-color 250ms ease;
+    transition: backdrop-filter 200ms ease, background-color 200ms ease;
 }
 
 .overlay-enter-from,
@@ -148,7 +148,7 @@ export default {
 
 .overlay-enter-active > .share-style-div,
 .overlay-leave-active > .share-style-div {
-    transition: transform 250ms ease, opacity 250ms ease;
+    transition: transform 200ms ease, opacity 200ms ease;
 }
 
 .overlay-enter-from > .share-style-div,
@@ -224,7 +224,7 @@ export default {
     color: var(--color-primary-text);
     font-family: Satoshi-Light;
     font-size: 1rem;
-    transition: border-color 250ms ease, background-color 250ms ease;
+    transition: border-color 200ms ease, background-color 200ms ease;
 }
 
 .form-group input:focus {
@@ -251,7 +251,7 @@ export default {
     font-family: Satoshi-Bold;
     font-size: 1rem;
     cursor: pointer;
-    transition: all 250ms ease;
+    transition: all 200ms ease;
     border: 2px solid transparent;
 }
 

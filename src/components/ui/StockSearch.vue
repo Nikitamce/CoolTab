@@ -149,7 +149,7 @@ export default {
     border-radius: 10px;
     cursor: pointer;
     border: 2px solid var(--color-border-line);
-    transition: border-color 250ms ease;
+    transition: border-color 200ms ease;
     user-select: none;
     font-size: 1rem;
     font-family: Satoshi-Regular;
@@ -160,7 +160,7 @@ export default {
     top: 50%;
     transform: translateY(-50%);
     right: 8px;
-    transition: transform 250ms ease;
+    transition: transform 200ms ease;
     color: var(--color-secondary-text);
 }
 
@@ -197,8 +197,8 @@ export default {
     align-items: center;
     cursor: pointer;
     transition:
-        background-color 250ms ease,
-        color 250ms ease;
+        background-color 200ms ease,
+        color 200ms ease;
 }
 
 .delete-button i {
@@ -238,7 +238,7 @@ export default {
 
 .search-result {
     cursor: pointer;
-    transition: background-color 150ms ease;
+    transition: background-color 200ms ease;
     position: relative;
 }
 
@@ -284,7 +284,7 @@ export default {
     border-radius: 4px;
     white-space: nowrap;
     opacity: 0;
-    transition: opacity 150ms ease;
+    transition: opacity 200ms ease;
     pointer-events: none;
 }
 

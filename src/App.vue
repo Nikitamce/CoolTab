@@ -112,7 +112,7 @@ export default {
             this.$refs.shareStyleRef.toggleShareStyle();
         },
         toggleWallpaper() {
-            if (this.$refs.wallpaperRef && this.$refs.wallpaperRef.toggle) {
+            if (this.$refs.wallpaperRef.toggle) {
                 this.$refs.wallpaperRef.toggle();
             }
         },
@@ -134,7 +134,7 @@ export default {
             const colors = this.settingsStore.colors;
 
             for (const key in colors) {
-                if (colors.hasOwnProperty(key)) {
+                if (Object.hasOwn(colors, key)) {
                     r.style.setProperty(`--${key.replaceAll("_", "-")}`, colors[key]);
                 }
             }

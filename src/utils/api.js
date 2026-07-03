@@ -4,12 +4,12 @@ export const YAHOO_QUERY1_BASE = isDev ? "/yahoo-query1" : "https://query1.finan
 export const YAHOO_QUERY2_BASE = isDev ? "/yahoo-query2" : "https://query2.finance.yahoo.com";
 
 export async function fetchYahoo(url) {
-    if (!isDev && typeof chrome !== 'undefined' && chrome.runtime && chrome.runtime.sendMessage) {
+    if (!isDev && typeof chrome !== 'undefined' && chrome.runtime?.sendMessage) {
         return new Promise((resolve, reject) => {
             chrome.runtime.sendMessage({ type: 'FETCH_YAHOO', url }, (response) => {
                 if (chrome.runtime.lastError) {
                     reject(new Error(chrome.runtime.lastError.message));
-                } else if (response && response.error) {
+                } else if (response?.error) {
                     reject(new Error(response.error));
                 } else if (response) {
                     resolve(response.data);

@@ -28,6 +28,9 @@ import { useSettingsStore } from "@/settings";
 import Svg from "./Svg.vue";
 
 export default {
+	components: {
+		Svg,
+	},
 	emits: ["select"],
 	name: "ColorPalette",
 	data() {

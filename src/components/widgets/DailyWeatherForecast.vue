@@ -61,12 +61,12 @@ export default {
     },
     methods: {
         convertTimeToMinutes(time) {
-            if (!time || !time.includes(":")) return 0;
+            if (!time?.includes(":")) return 0;
             const [hour, minute] = time.split(":");
             const hour24 = parseInt(hour);
             const minuteVal = parseInt(minute);
 
-            return (isNaN(hour24) ? 0 : hour24) * 60 + (isNaN(minuteVal) ? 0 : minuteVal);
+            return (Number.isNaN(hour24) ? 0 : hour24) * 60 + (Number.isNaN(minuteVal) ? 0 : minuteVal);
         },
         calculateRotation() {
             if (!this.weather.sunrise || !this.weather.sunset) return;

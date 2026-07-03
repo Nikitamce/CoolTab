@@ -95,7 +95,7 @@ export default {
     align-items: center;
     font-size: 3cqw;
     font-family: Satoshi-Bold;
-    transition: opacity 250ms ease;
+    transition: opacity 200ms ease;
     container-type: size;
     resize: both;
     z-index: 2;
@@ -134,7 +134,7 @@ export default {
     flex-direction: column;
     justify-content: center;
     opacity: 0;
-    transition: opacity 250ms ease;
+    transition: opacity 200ms ease;
 }
 
 .comprehensive h2 {

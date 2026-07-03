@@ -77,7 +77,7 @@ export default {
     border-radius: 10px;
     cursor: pointer;
     border: 2px solid var(--color-border-line);
-    transition: color 250ms ease;
+    transition: color 200ms ease;
     user-select: none;
     font-size: 1rem;
     font-family: Satoshi-Regular;
@@ -90,7 +90,7 @@ export default {
     height: 30px;
     top: 8px;
     right: 4px;
-    transition: transform 250ms ease;
+    transition: transform 200ms ease;
 }
 
 .rotate {

@@ -190,7 +190,7 @@ export default {
    font-size: 1rem;
    font-family: Satoshi-Medium;
    cursor: pointer;
-   transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1), background-color 200ms ease;
+   transition: width 200ms ease, background-color 200ms ease;
    overflow: hidden;
    white-space: nowrap;
 }

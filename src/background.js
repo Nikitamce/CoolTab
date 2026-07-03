@@ -1,8 +1,8 @@
-chrome.runtime.onInstalled.addListener((details) => {
+chrome.runtime.onInstalled.addListener((_details) => {
     chrome.runtime.setUninstallURL('https://iso53.github.io/CoolTab/#/uninstall');
 });
 
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+chrome.runtime.onMessage.addListener((request, _sender, sendResponse) => {
     if (request.type === 'FETCH_YAHOO') {
         fetch(request.url)
             .then(response => {
