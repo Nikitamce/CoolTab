@@ -33,22 +33,30 @@
                             {{ errorMessage }}
                         </p>
 
-                        <div class="button-group">
-                            <button
-                                type="button"
-                                class="btn-cancel"
-                                @click="toggleShareStyle"
-                                :disabled="isMessageShown"
-                            >
-                                Cancel
-                            </button>
-                            <button type="submit" class="btn-submit" :disabled="isMessageShown || isRateLimited">Share Style</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </Transition>
-    </div>
+						<div class="button-group">
+							<button
+								type="button"
+								class="btn-cancel"
+								@click="toggleShareStyle"
+								:disabled="isMessageShown"
+							>
+								Cancel
+							</button>
+							<button
+								type="submit"
+								class="btn-submit"
+								:disabled="
+									isMessageShown || isRateLimited || isLoading
+								"
+							>
+								{{ isLoading ? "Sharing..." : "Share Style" }}
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</Transition>
+	</div>
 </template>
 
 <script>
@@ -67,6 +75,7 @@ export default {
             styleName: "",
             errorMessage: "",
             isRateLimited: false,
+            isLoading: false,
         };
     },
     methods: {
@@ -88,6 +97,7 @@ export default {
             this.isMessageShown = false;
             this.errorMessage = "";
             this.isRateLimited = false;
+            this.isLoading = false;
 
             if (this.isOpen && this.checkRateLimit()) {
                 this.isRateLimited = true;
@@ -95,25 +105,34 @@ export default {
             }
         },
         async handleSubmit() {
+            if (this.isLoading) return;
+
             if (this.checkRateLimit()) {
                 this.isRateLimited = true;
                 this.errorMessage = "You can only share 1 style per day. Please try again tomorrow.";
                 return;
             }
 
-            const result = await this.settingsStore.shareUserStyle(this.styleName);
+            this.isLoading = true;
+            this.errorMessage = "";
 
-            if (result.success) {
-                localStorage.setItem("last-share-timestamp", Date.now().toString());
-                this.isMessageShown = true;
-                this.isRateLimited = false;
-                this.errorMessage = "";
-            } else if (result.isRateLimit) {
-                this.isRateLimited = true;
-                this.errorMessage = "You can only share 1 style per day. Please try again tomorrow.";
-            } else {
-                this.isRateLimited = false;
-                this.errorMessage = result.error || "Unknown error";
+            try {
+                const result = await this.settingsStore.shareUserStyle(this.styleName);
+
+                if (result.success) {
+                    localStorage.setItem("last-share-timestamp", Date.now().toString());
+                    this.isMessageShown = true;
+                    this.isRateLimited = false;
+                    this.errorMessage = "";
+                } else if (result.isRateLimit) {
+                    this.isRateLimited = true;
+                    this.errorMessage = "You can only share 1 style per day. Please try again tomorrow.";
+                } else {
+                    this.isRateLimited = false;
+                    this.errorMessage = result.error || "Unknown error";
+                }
+            } finally {
+                this.isLoading = false;
             }
         },
     },
